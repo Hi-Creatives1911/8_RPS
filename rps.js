@@ -17,14 +17,15 @@ function game (userOption, computerOption) {
     }
 }
 
-let opponent = prompt('Choose your Opponent (Bode, Sarah or Buzz)')
-let userOption = prompt ('Enter Your Choice [rock, paper or scissors}');
+let opponent = prompt('Choose your Opponent (Bode, Sarah or Buzz)').toLowerCase();
+let userOption = prompt ('Enter Your Choice [rock, paper or scissors}').toLowerCase();
 if (gameOptions.includes(userOption) && compOptions.includes(opponent)) {
     let gameComputerOption = computerOption();
     let result = game(userOption, gameComputerOption);
 
-    alert ( `   You: ${userOption} \n${opponent}: ${gameComputerOption} \n${result}`);
+    alert ( `\tYou: ${userOption} \n${opponent}: ${gameComputerOption} \n${result}`);
 } else {
     alert ('Invalid Input. Try Again.')
 }
 
+    
