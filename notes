@@ -1,0 +1,60 @@
+const gameOptions = ["ROCK", "PAPER", "SCISSORS"];
+
+function computerOption() {
+    let compOptions = gameOptions[Math.floor (Math.random() * gameOptions.length)];
+   return compOptions.toUpperCase();
+}
+
+function game () {
+    
+    let player = 0;
+    let computer = 0;
+    let round;
+    let result;
+
+    for (let turns = 0; turns < 3; turns++) {
+
+        let userOption = prompt ('Enter Your Choice [rock, paper or scissors}');
+        let userOptionUpper = userOption.toUpperCase();
+
+        while (!(gameOptions.includes (userOptionUpper))){
+            userOption = prompt('wrong Input. Try again! (Rock, Paper or Scissors)')
+            userOptionUpper = userOption.toUpperCase();
+        }
+        console.log (userOptionUpper);
+
+        let computerOption = computerOption();
+        console.log (computerOption);
+
+        if (userOption == computerOption) {
+            round = "It's a TIE!"
+        } else if (
+            (userOption == 'rock' && computerOption == 'scissors') ||                
+            (userOption == 'paper' && computerOption == 'rock') ||
+            (userOption == 'scissors' && computerOption == 'paper')) {
+            
+            player++;
+            round =  `Congrats!\nYou = ${player}\nComputer = ${computer}`;
+            
+        } else {
+
+            computer++;
+            round =  `Whoops!\nYou = ${player}\nComputer = ${computer}\nTry Again.`;
+        }
+
+        if ((player === 2) || (computer === 2)) {
+            break;
+        }
+    } 
+
+    if (player === 2) {
+        result = `You Win!!!`
+    } else if (computer === 2) {
+        result = `Computer Wins!!!`
+    } else {result = `It's a Tie!!!`}
+
+    return result;
+}
+
+
+console.log (game());
